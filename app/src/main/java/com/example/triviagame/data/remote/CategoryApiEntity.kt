@@ -1,4 +1,4 @@
-package com.example.triviagame.api
+package com.example.triviagame.data.remote
 
 import com.google.gson.annotations.SerializedName
 

@@ -8,7 +8,12 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.triviagame.R
-import com.example.triviagame.ui.SharedViewModel.GameScreen.*
+import com.example.triviagame.ui.fragments.QuestionFragment
+import com.example.triviagame.ui.fragments.ResultFragment
+import com.example.triviagame.ui.fragments.StartFragment
+import com.example.triviagame.ui.fragments.ToChooseFragment
+import com.example.triviagame.ui.viewmodel.SharedViewModel
+import com.example.triviagame.ui.viewmodel.SharedViewModel.GameScreen.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(SharedViewModel::class.java)
 
         viewModel.screen.observe(this, Observer {
-            val fragment = when (it) {
+            val fragment = when (it ?: return@Observer) {
                 MAIN_MENU -> StartFragment()
                 LIST -> ToChooseFragment()
                 GAME -> QuestionFragment()

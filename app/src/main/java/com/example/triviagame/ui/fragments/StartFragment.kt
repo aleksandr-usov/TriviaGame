@@ -1,4 +1,4 @@
-package com.example.triviagame.ui
+package com.example.triviagame.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.triviagame.R
+import com.example.triviagame.ui.viewmodel.SharedViewModel
 import kotlinx.android.synthetic.main.fragment_start.*
 
 class StartFragment : Fragment() {
