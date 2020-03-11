@@ -1,2 +1,2 @@
 # TriviaGame
-Something something Trivia Game something.
+Practice App.
