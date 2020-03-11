@@ -2,8 +2,6 @@ package com.example.triviagame
 
 import org.junit.Test
 
-import org.junit.Assert.*
-
 /**
  * Example local unit test, which will execute on the development machine (host).
  *
@@ -12,6 +10,13 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+        // init repository
+        // give repository 10 questions
+        // resultingQuestions = repository.giveMeQuestions()
+        // assertEquals(8, resultingQuestions.size)
+
+        // create 10 questions
+        // remove two
+        // assert(8, 10 - 2)
     }
 }

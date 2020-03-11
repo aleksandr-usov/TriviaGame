@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/tv_number_of_questions1"
@@ -47,13 +47,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sb_number_of_questions" />
 
-    <Spinner
-        android:id="@+id/sp_category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+    <View
+        android:id="@+id/v_category_to_choose"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:background="?android:attr/selectableItemBackground"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_category" />
+
+    <TextView
+        android:id="@+id/tv_category_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Any"
+        app:layout_constraintBottom_toBottomOf="@id/v_category_to_choose"
+        app:layout_constraintStart_toStartOf="@id/tv_category"
+        app:layout_constraintTop_toTopOf="@+id/v_category_to_choose" />
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/v_category_to_choose"
+        app:layout_constraintEnd_toEndOf="@id/v_category_to_choose"
+        app:layout_constraintTop_toTopOf="@id/v_category_to_choose"
+        app:srcCompat="@drawable/ic_keyboard_arrow_right_black" />
 
     <TextView
         android:id="@+id/tv_difficulty"
@@ -63,15 +84,36 @@
         android:layout_marginTop="8dp"
         android:text="Select Difficulty"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_category" />
+        app:layout_constraintTop_toBottomOf="@+id/v_category_to_choose" />
 
-    <Spinner
-        android:id="@+id/sp_difficulty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+    <View
+        android:id="@+id/v_difficulty_to_choose"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:background="?android:attr/selectableItemBackground"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_difficulty" />
+
+    <TextView
+        android:id="@+id/tv_difficulty_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Any"
+        app:layout_constraintBottom_toBottomOf="@id/v_difficulty_to_choose"
+        app:layout_constraintStart_toStartOf="@id/tv_difficulty"
+        app:layout_constraintTop_toTopOf="@+id/v_difficulty_to_choose" />
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/v_difficulty_to_choose"
+        app:layout_constraintEnd_toEndOf="@id/v_difficulty_to_choose"
+        app:layout_constraintTop_toTopOf="@id/v_difficulty_to_choose"
+        app:srcCompat="@drawable/ic_keyboard_arrow_right_black" />
 
     <TextView
         android:id="@+id/tv_type"
@@ -81,15 +123,36 @@
         android:layout_marginTop="8dp"
         android:text="Select Type"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_difficulty" />
+        app:layout_constraintTop_toBottomOf="@+id/v_difficulty_to_choose" />
 
-    <Spinner
-        android:id="@+id/sp_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+    <View
+        android:id="@+id/v_type_to_choose"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:background="?android:attr/selectableItemBackground"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_type" />
+
+    <TextView
+        android:id="@+id/tv_type_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Any"
+        app:layout_constraintBottom_toBottomOf="@id/v_type_to_choose"
+        app:layout_constraintStart_toStartOf="@id/tv_type"
+        app:layout_constraintTop_toTopOf="@+id/v_type_to_choose" />
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/v_type_to_choose"
+        app:layout_constraintEnd_toEndOf="@id/v_type_to_choose"
+        app:layout_constraintTop_toTopOf="@id/v_type_to_choose"
+        app:srcCompat="@drawable/ic_keyboard_arrow_right_black" />
 
     <Button
         android:id="@+id/btn_play"
@@ -99,6 +162,6 @@
         android:text="play!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_type" />
+        app:layout_constraintTop_toBottomOf="@+id/v_type_to_choose" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,13 +1,11 @@
 package com.example.triviagame.ui
 
-
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -32,21 +30,26 @@ class QuestionFragment : Fragment() {
     }
 
     private fun initViews() {
+
         with(btn_next_question) {
-            isEnabled = rb_answer_group.checkedRadioButtonId == -1
-            
+            isEnabled = rb_answer_group.checkedRadioButtonId != -1
+
             setOnClickListener {
                 rb_third_answer.visibility = View.VISIBLE
                 rb_fourth_answer.visibility = View.VISIBLE
 
-                viewModel.nextQuestion()
+                val answer =
+                    rb_answer_group.findViewById<RadioButton>(rb_answer_group.checkedRadioButtonId)
+                        .text.toString()
+
+                viewModel.submitAnswer(answer)
+
                 rb_answer_group.clearCheck()
-            }   
+            }
         }
 
         btn_end_game.setOnClickListener {
-            val startFragment = StartFragment()
-            fragmentManager?.beginTransaction()?.replace(R.id.fl_container, startFragment)?.commit()
+            viewModel.screen.value = SharedViewModel.GameScreen.MAIN_MENU
         }
     }
 
@@ -61,7 +64,13 @@ class QuestionFragment : Fragment() {
             questionSetupLiveData.observe(viewLifecycleOwner, Observer {
                 it ?: return@Observer
 
-                // hide progress bar
+                if (it.index == it.questionsAmount) {
+                    btn_next_question.text = "finish"
+                    btn_end_game.isVisible = false
+                } else {
+                    btn_next_question.text = "next"
+                    btn_end_game.isVisible = true
+                }
 
                 rb_answer_group.setOnCheckedChangeListener { _, checkedId ->
                     btn_next_question.isEnabled = checkedId != -1
@@ -89,7 +98,7 @@ class QuestionFragment : Fragment() {
                     rb_third_answer.text = answers[2]
                     rb_fourth_answer.text = answers[3]
                 }
-            })   
+            })
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.example.triviagame.api
 
-
 import com.google.gson.annotations.SerializedName
 
 data class TriviaApiEntity(
