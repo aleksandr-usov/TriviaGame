@@ -1,2 +1,2 @@
 # TriviaGame
-Practice App.
+Practice App in Kotlin.
